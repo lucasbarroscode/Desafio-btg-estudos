@@ -28,3 +28,6 @@ Json Exemlo:
 }
 ]
 }
+
+
+Get: http://localhost:8080/customers/1/orders

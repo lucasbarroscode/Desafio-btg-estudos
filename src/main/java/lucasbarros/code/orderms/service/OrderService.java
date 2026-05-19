@@ -1,9 +1,12 @@
 package lucasbarros.code.orderms.service;
 
+import lucasbarros.code.orderms.controller.dto.OrderResponse;
 import lucasbarros.code.orderms.dto.OrderCreatedEvent;
 import lucasbarros.code.orderms.order.OrderEntity;
 import lucasbarros.code.orderms.order.OrderItem;
 import lucasbarros.code.orderms.repository.OrderRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -28,6 +31,12 @@ public class OrderService {
 
         repository.save(entity);
 
+    }
+
+    public Page<OrderResponse> findAllByCustomerId(Long customeId, PageRequest pageRequest){
+        var orders = repository.findAllByCustomerId(customeId, pageRequest);
+        //todo verificar se eu não poderia fazer igual o map ali embaixo e qual seria a diferença
+        return orders.map(OrderResponse::fromEntity);
     }
 
     private BigDecimal getTotal(OrderCreatedEvent event) {
