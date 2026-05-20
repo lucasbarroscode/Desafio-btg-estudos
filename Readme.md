@@ -10,11 +10,8 @@
 
 # 📋 Desafio
 
-O enunciado completo do desafio está disponível no arquivo:
+O enunciado completo do desafio está disponível no arquivo: [problem.md](./problem.md)
 
-```md
-[problem.md](./problem.md)
-```
 
 ---
 
@@ -82,4 +79,13 @@ Consultar pedidos de um cliente:
 
 ```http
 GET http://localhost:8080/customers/1/orders
+POST http://localhost:8080/publish
 ```
+## 📝 Changelog
+
+### [v2.0-SNAPSHOT] - 2026-05-20
+#### 🟢 Added
+
+- Novo endpoint `POST /publish` para cadastrar pedidos a partir de um payload JSON.
+- O endpoint publica a mensagem no RabbitMQ, permitindo que o fluxo de mensageria processe e salve os dados no MongoDB.
+- Antes, o envio da mensagem era feito manualmente pela tela `Publish message` do RabbitMQ Management.

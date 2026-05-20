@@ -8,6 +8,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
+import static lucasbarros.code.orderms.config.RabbitMqConfig.ORDER_CREATE_EXCHANGE;
 import static lucasbarros.code.orderms.config.RabbitMqConfig.ORDER_CREATE_QUEUE;
 
 @Component
@@ -28,5 +29,4 @@ public class OrderCreatedListener {
         orderService.save(message.getPayload());
 
     }
-
 }
