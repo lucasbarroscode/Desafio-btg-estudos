@@ -42,7 +42,7 @@ public class OrderService {
 
     public Page<OrderResponse> findAllByCustomerId(Long customeId, PageRequest pageRequest){
         var orders = repository.findAllByCustomerId(customeId, pageRequest);
-        //todo verificar se eu não poderia fazer igual o map ali embaixo e qual seria a diferença
+
         return orders.map(OrderResponse::fromEntity);
     }
 
