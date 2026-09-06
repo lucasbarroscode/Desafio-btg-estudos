@@ -89,3 +89,7 @@ POST http://localhost:8080/publish
 - Novo endpoint `POST /publish` para cadastrar pedidos a partir de um payload JSON.
 - O endpoint publica a mensagem no RabbitMQ, permitindo que o fluxo de mensageria processe e salve os dados no MongoDB.
 - Antes, o envio da mensagem era feito manualmente pela tela `Publish message` do RabbitMQ Management.
+
+### [v2.1-SNAPSHOT] - 2026-09-06
+#### 🟢 Added
+- Teste unitarios e SDD com o codex. 
